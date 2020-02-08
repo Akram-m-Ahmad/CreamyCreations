@@ -22,12 +22,13 @@ const start = async()=>{
     res.json(result);
   });
 
-  app.get('/Products/create/name=:name?&description=:description?&price=:price?', async(req, res)=>{
-    const{name,description,price } = req.params;
-  
-    const result = await controller.createProducts({name,description,price });
+  app.get('/Products/create', async(req, res)=>{
+    const{name,description,price,Categories_ID } = req.query;
+  console.log({name,description,price,Categories_ID })
+    const result = await controller.createProducts({name,description,price,Categories_ID});
     res.json(result);
   });
+
   app.get('/Products/delete/:id', async(req, res)=>{
    
     const {id}= req.params;
@@ -35,10 +36,10 @@ const start = async()=>{
     res.json(result);
   });
 
-  app.get('/Products/update/:id/name=:name?&description=:description?&price=:price?', async(req, res)=>{
+  app.get('/Products/update/:id', async(req, res)=>{
    
     const {id}= req.params;
-    const {name,description,price } = req.params;
+    const {name,description,price } = req.query;
     const result = await controller.updateProducts(id, {name,description,price});
     res.json(result);
   });

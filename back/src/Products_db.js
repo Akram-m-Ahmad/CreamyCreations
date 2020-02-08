@@ -2,18 +2,9 @@ import sqlite from 'sqlite';
 
 const initializeDatabase = async()=>{
    const db = await sqlite.open('./CreamyCeartiondb.sqlite');
-    // const getProducts = async()=>{
-    //     let string='';
-    //     const rows = await db.all("SELECT  id, name,description,price FROM Products")
-    //     return rows;
-    // }
-    // const addProducts = async(props)=>{
-    //   props = {name,description,price}
-    //     const result = await db.prepare(`INSERT INTO Products (name, description,price) VALUES
-    //      ('${name}', '${description}',${price})`)
-    //     return result;
+    
     const getProducts = async orderBy => {
-        let stmt = "SELECT  id, name,description,price FROM Products";
+        let stmt = "SELECT  id, name,description,price, Categories_ID FROM Products";
      
         try {
           const rows = await db.all(stmt);
@@ -42,12 +33,12 @@ const initializeDatabase = async()=>{
      
       const createProducts = async props => {
         const { name,description,price } = props;
-        if (!props || !name || !description||!price) {
+        if (!props || !name || !description||!price||!Categories_ID) {
           throw new Error(`You must provide a name and description and price`);
         }
         try {
           const result = await db.run(
-            `Insert into Products (name,description,price) values ('${name}', '${description}',${price})`
+             `Insert into Products (name,description,price,Categories_ID ) values ('${name}', '${description}',${price},${Categories_ID})`
           );
           return result.stmt.lastID;
         } catch (err) {
@@ -70,8 +61,8 @@ const initializeDatabase = async()=>{
       };
     
       const updateProducts = async (id, props) => {
-        const { name,description,price  } = props;
-        if (!props && !(props.name && props.description && props.price)) {
+        const { name,description,price,Categories_ID  } = props;
+        if (!props && !(props.name && props.description && props.price && props.Categories_ID)) {
           throw new Error(`You must provide a name or an description`);
         }
     
