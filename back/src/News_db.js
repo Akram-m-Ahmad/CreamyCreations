@@ -1,10 +1,10 @@
 import sqlite from 'sqlite';
 
-const initializeDatabase = async()=>{
+const NewsDatabase = async()=>{
    const db = await sqlite.open('./CreamyCeartiondb.sqlite');
     
-    const getProducts = async orderBy => {
-        let stmt = "SELECT  id, name,description,price, Categories_ID FROM Products";
+    const getNews = async orderBy => {
+        let stmt = "select * from News";
      
         try {
           const rows = await db.all(stmt);
@@ -13,17 +13,17 @@ const initializeDatabase = async()=>{
           }
           return rows;
         } catch (err) {
-          throw new Error("Could not retrieve list of products");
+          throw new Error("Could not retrieve list of ");
         }
       };
     
-      const getProductsByID = async id => {
+      const getNewsByID = async id => {
         try {
           const rows = await db.all(
-            `SELECT id,name,description,price FROM Products where id=${id}`
+            `select * from News where Id = ${id}`
           );
           if (rows.length == 0) {
-            throw new Error(`product with id ${id} is not found`);
+            throw new Error(`News with id ${id} is not found`);
           }
           return rows;
         } catch (err) {
@@ -31,14 +31,14 @@ const initializeDatabase = async()=>{
         }
       };
      
-      const createProducts = async props => {
-        const { name,description,price } = props;
-        if (!props || !name || !description||!price||!Categories_ID) {
-          throw new Error(`You must provide a name and description and price`);
+      const createNews = async props => {
+        const { description,date} = props;
+        if (!props  || !description||!date) {
+          throw new Error(`You must provide a  description and date`);
         }
         try {
           const result = await db.run(
-             `Insert into Products (name,description,price,Categories_ID ) values ('${name}', '${description}',${price},${Categories_ID})`
+              `Insert INTO News (description,date) VALUES ('${description}',${date})`
           );
           return result.stmt.lastID;
         } catch (err) {
@@ -46,10 +46,10 @@ const initializeDatabase = async()=>{
         }
       };
     
-      const deleteProducts = async id => {
+      const deleteNews = async id => {
         try {
           const result = await db.run(
-            `Delete from Products where id = ${id}`
+            `DELETE from News WHERE id = ${id}`
           );
           if (result.stmt.changes == 0) {
             throw new Error(`Product with id ${id} doesnt exist`);
@@ -60,20 +60,20 @@ const initializeDatabase = async()=>{
         }
       };
     
-      const updateProducts = async (id, props) => {
-        const { name,description,price,Categories_ID  } = props;
-        if (!props && !(props.name && props.description && props.price && props.Categories_ID)) {
+      const updateNews = async (id, props) => {
+        const { name,description,date } = props;
+        if (!props && !(props.description && props.date)) {
           throw new Error(`You must provide a name or an description`);
         }
     
         let stmt = "";
-        if (name && description && price) {
-          stmt = `update Products set name = '${name}', description = '${description}' ,price = '${price}' where id = ${id} `;
+        if ( description && date) {
+          stmt = `UPDATE News set description= '${description}' , date =${date} where id = ${id}`;
           console.log(stmt);
-        } else if (name && !description) {
-          stmt = `update Products set name = '${name}' where id = ${id} `;
+        } else if (description && !date) {
+          stmt =`UPDATE News set description= '${description}'  where id = ${id}`;
         } else {
-          stmt = `update Products set  description = '${description}' where id = ${id} `;
+          stmt = `UPDATE News set date =${date} where id = ${id}`;
         }
         try {
           const result = await db.run(stmt);
@@ -88,16 +88,16 @@ const initializeDatabase = async()=>{
       };
     
       const controller = {
-        getProducts,
-        createProducts,
-        deleteProducts,
-        updateProducts,
-        getProductsByID
+        getNews,
+        createNews,
+        deleteNews,
+        updateNews,
+        getNewsByID
       };
     
       return controller;
     };
     
-export default  initializeDatabase ;
+export default  NewsDatabase ;
 
     

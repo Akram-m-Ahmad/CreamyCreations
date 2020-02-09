@@ -1,12 +1,12 @@
 import express from 'express';
-import initializeDatabase from './Products_db';
-
+import ProductsDatabase from './Product_db';
+import NewsDatabase from './News_db';
 const app = express();
 
+app.listen(8080, ()=>{console.log("Listening on port 8080")});
+const startProduct = async()=>{
 
-const start = async()=>{
-
-  const controller = await initializeDatabase();
+  const controller = await ProductsDatabase()  ;
   app.get('/', (req, res)=>{
 
     res.json({message:"Hello"});
@@ -16,6 +16,7 @@ const start = async()=>{
     const result = await controller.getProducts(req.query);
     res.send(result);
   });
+ 
   app.get('/Products/:id', async(req, res)=>{
     const {id} = req.params;
     const result = await controller.getProductsByID(id);
@@ -44,9 +45,57 @@ const start = async()=>{
     res.json(result);
   });
   
-  app.listen(8080, ()=>{console.log("Listening on port 8080")});
+ 
   
-  
+ 
 
 }
-start()
+startProduct()
+
+//News
+
+const startNews = async()=>{
+
+  const controller = await NewsDatabase()  ;
+
+  
+  app.get('/News/', async(req, res)=>{
+    const result = await controller.getNews(req.query);
+    res.send(result);
+  });
+ 
+  app.get('/News/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getNewsByID(id);
+    res.json(result);
+  });
+
+  app.get('/News/create', async(req, res)=>{
+    const{description,date } = req.query;
+  console.log({description,date})
+    const result = await controller.createNews({description,date});
+    res.json(result);
+  });
+
+  app.get('/News/delete/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const result = await controller.deleteNews(id);
+    res.json(result);
+  });
+
+  app.get('/News/update/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const {description,date } = req.query;
+    const result = await controller.updateProducts(id, {description,date});
+    res.json(result);
+  });
+  
+ 
+ 
+
+}
+startNews()
+
+
