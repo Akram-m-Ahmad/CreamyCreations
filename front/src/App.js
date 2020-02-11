@@ -1,23 +1,20 @@
 import React,{Component} from 'react';
 import './App.css';
-import Nheader from './components/header'
-import Nproduct from './page/product'
-import order from './page/order'
+import Nproducts from './page/Products/Products'
+import Navbar from './components/header'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
+
 class App extends Component {
   
   render() {
     return (
       <>
-       {/* <div className='App'>
-      Contact List:
-      <ul>
-      {
-  this.state.Products.map(Product=><li>{Product.name} </li>)
-      }
-     </ul>
-      </div> */}
-      <Nheader/>
-      <Nproduct/>
+      <Navbar/>
+      <Nproducts/>
 
       </>
     );
