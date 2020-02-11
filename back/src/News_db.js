@@ -9,11 +9,11 @@ const NewsDatabase = async()=>{
         try {
           const rows = await db.all(stmt);
           if (rows.length == 0) {
-            throw new Error("Products are empty!");
+            throw new Error("News are empty!");
           }
           return rows;
         } catch (err) {
-          throw new Error("Could not retrieve list of ");
+          throw new Error("Could not retrieve list of News ");
         }
       };
     

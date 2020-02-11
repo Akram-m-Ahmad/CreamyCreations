@@ -4,7 +4,8 @@
     margin-bottom: 20px;
 }
 .img_product{
-    margin-top: 5px;
+    margin-top: 25px;
+margin-left: -11px;
 
 }
 span{
@@ -12,10 +13,13 @@ span{
     font-weight: bold;
 }
 .drop{
+
     column-gap: 15px;
     display: flex;
 }
-
+#dropdown-basic-button{
+margin-bottom: 10px;
+}
 .icon-trash {
     width:100px;
     height: 100px;
