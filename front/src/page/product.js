@@ -3,7 +3,12 @@ import './product.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NaddNew from './add-product'
 import { Dropdown, MenuItem, Button, ButtonToolbar, DropdownButton, SplitButton, Container, Row, Col, FormControl, Nav, thumbnail, Table, Image } from 'react-bootstrap';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { BrowserRouter, Redirect } from 'react-router';
 
 
@@ -55,10 +60,12 @@ class product extends React.Component {
 
     return (
       <>
+ 
 
-
-        <Button className='add' onClick={this.handleClick.bind(this,'NaddNew')} size="lg" variant="danger">Add new product</Button>
-        {this._renderSubComp()}
+         <Button className='add' onClick={this.handleClick.bind(this,'NaddNew')} size="lg" variant="danger">Add new product</Button>
+       
+       {this._renderSubComp()} 
+  
         <Container>
 
           {

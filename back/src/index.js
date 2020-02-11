@@ -2,6 +2,10 @@ import express from 'express';
 import ProductsDatabase from './Product_db';
 import NewsDatabase from './News_db';
 import CategoriesDatabase from './Categories_db'
+import Eventsdatabase from './Events_db'
+import getProductImageDatabase from './ProductImage_db'
+import OrdersDatabase from './Orders_db'
+
 const app = express();
 
 app.listen(8080, ()=>{console.log("Listening on port 8080")});
@@ -21,12 +25,7 @@ const startProduct = async()=>{
     res.send(result);
   });
  
-  app.get('/Products/:id', async(req, res)=>{
-    const {id} = req.params;
-    const result = await controller.getProductsByID(id);
-    res.json(result);
-  });
-
+  
   app.get('/Products/create', async(req, res)=>{
     const{name,description,price,Categories_ID } = req.query;
   console.log({name,description,price,Categories_ID })
@@ -49,7 +48,12 @@ const startProduct = async()=>{
     res.json(result);
   });
   
- 
+  app.get('/Products/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getProductsByID(id);
+    res.json(result);
+  });
+
   
  
 
@@ -67,19 +71,16 @@ const startNews = async()=>{
     const result = await controller.getNews(req.query);
     res.send(result);
   });
- 
-  app.get('/News/:id', async(req, res)=>{
-    const {id} = req.params;
-    const result = await controller.getNewsByID(id);
-    res.json(result);
-  });
-
+   
   app.get('/News/create', async(req, res)=>{
+    console.log("create")
     const{description,date } = req.query;
   console.log({description,date})
     const result = await controller.createNews({description,date});
     res.json(result);
   });
+ 
+
 
   app.get('/News/delete/:id', async(req, res)=>{
    
@@ -96,13 +97,19 @@ const startNews = async()=>{
     res.json(result);
   });
   
+  app.get('/News/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getNewsByID(id);
+    res.json(result);
+    await result.finalize();
+  });
  
  
 
 }
 startNews()
 
-//Categories
+// //Categories
 
 const startCategoriesDatabase = async()=>{
 
@@ -114,11 +121,6 @@ const startCategoriesDatabase = async()=>{
     res.send(result);
   });
  
-  app.get('/Categories/:id', async(req, res)=>{
-    const {id} = req.params;
-    const result = await controller.getgetCategoriesByID(id);
-    res.json(result);
-  });
 
   app.get('/Categories/create', async(req, res)=>{
     const{name } = req.query;
@@ -143,8 +145,156 @@ const startCategoriesDatabase = async()=>{
   });
   
  
+  app.get('/Categories/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getgetCategoriesByID(id);
+    res.json(result);
+  });
  
 
 }
 startCategoriesDatabase()
 
+//Events
+const startEvents = async()=>{
+
+  const controller = await Eventsdatabase()  ;
+  app.get('/', (req, res)=>{
+
+    res.json({message:"Hello"});
+  });
+  
+  app.get('/Events/', async(req, res)=>{
+    const result = await controller.getEvents(req.query);
+    res.send(result);
+  });
+ 
+  
+
+  app.get('/Events/create', async(req, res)=>{
+    const{description,location,date } = req.query;
+  console.log({id,description,location,date })
+    const result = await controller.createEvents({description,location,date});
+    res.json(result);
+  });
+
+  app.get('/Products/delete/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const result = await controller.deleteProducts(id);
+    res.json(result);
+  });
+
+  app.get('/Events/update/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const {description,location,date } = req.query;
+    const result = await controller.updateProducts( {id,description,location,date});
+    res.json(result);
+  });
+  
+ 
+  app.get('/Events/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getEventsByID(id);
+    res.json(result);
+  });
+ 
+
+}
+startEvents()
+
+
+
+//ProductImages
+
+const startProductImages = async()=>{
+
+  const controller = await  getProductImageDatabase()  ;
+  
+  app.get('/ProductImages/', async(req, res)=>{
+    const result = await controller.getProductImages(req.query);
+    res.send(result);
+  });
+ 
+ 
+
+  app.get('/ProductImages/create', async(req, res)=>{
+    const{id,path,Products_id } = req.query;
+  console.log({id,path,price,Products_id})
+    const result = await controller.createProductImages({id,path,Products_id});
+    res.json(result);
+  });
+
+  app.get('/ProductImages/delete/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const result = await controller.deleteProductImages(id);
+    res.json(result);
+  });
+
+  app.get('/ProductImages/update/:id', async(req, res)=>{
+   
+    const {id}= req.params;
+    const {path,Products_id } = req.query;
+    const result = await controller.updateProducts(id, {path,Products_id});
+    res.json(result);
+  });
+  
+ 
+  app.get('/ProductImages/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getProductImagesByID(id);
+    res.json(result);
+  });
+ 
+
+}
+startProductImages()
+
+
+//Orders
+
+const startOrdersdatabse = async()=>{
+  const controller = await OrdersDatabase()  ;
+  app.get('/Orders/', async(req, res)=>{
+    const result = await controller.getOrders(req.query);
+    res.send(result);
+  });
+ 
+
+//create a new element
+      app.get('/Orders/create', async(req, res)=>{
+        const {date,username,userPhone,Products_ID } = req.query;
+      console.log({date,username,userPhone,Products_ID})
+        const result = await controller.createOrders({date,username,userPhone,Products_ID});
+        res.json(result);
+      });
+//DELETE element
+      app.get('/Orders/delete/:id', async(req, res)=>{
+
+        const {id}= req.params;
+        const result = await controller.deleteOrders(id);
+        res.json(result);
+      });
+
+      //get element by ID
+  app.get('/Orders/:id', async(req, res)=>{
+    const {id} = req.params;
+    const result = await controller.getOrdersByID(id);
+    res.json(result);
+  });
+
+  app.get('/Orders/update/:id', async(req, res)=>{
+
+    const {id}= req.params;
+    const { date,username,userPhone } = req.query;
+    const result = await controller.updateOrders(id, {date,username,userPhone});
+    res.json(result);
+  });
+
+ 
+
+
+}
+startOrdersdatabse()

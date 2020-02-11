@@ -27,12 +27,13 @@ const NewsDatabase = async()=>{
           }
           return rows;
         } catch (err) {
-          throw new Error("Could not retrieve product");
+          throw new Error("Could not retrieve News");
         }
       };
      
       const createNews = async props => {
-        const { description,date} = props;
+        const {description,date} = props;
+        console.log(description,date)
         if (!props  || !description||!date) {
           throw new Error(`You must provide a  description and date`);
         }
@@ -89,10 +90,11 @@ const NewsDatabase = async()=>{
     
       const controller = {
         getNews,
+        getNewsByID,
         createNews,
         deleteNews,
-        updateNews,
-        getNewsByID
+        updateNews
+        
       };
     
       return controller;
