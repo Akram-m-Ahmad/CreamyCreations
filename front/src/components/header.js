@@ -7,13 +7,10 @@ import { SocialIcon } from 'react-social-icons';
 
 
 
-
-class header extends React.Component {
+export default function header() {
   
 
-
-  render() {
-    
+   
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home">LOGO</Navbar.Brand>
@@ -34,8 +31,8 @@ class header extends React.Component {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+   
     );
   }
-}
 
-export default header;
+

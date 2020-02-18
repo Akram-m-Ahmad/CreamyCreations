@@ -1,0 +1,38 @@
+.h1Newscss{
+    color: chocolate;
+    font-size: 55px;
+    margin:0px;
+    padding-left: 4%;
+}
+.chcoRow{
+    border-bottom: chocolate solid 3px;
+    padding: 0%;
+}
+.mainImg{
+    height: 300px;
+    width:  100%;
+
+}
+.imagesCss{
+    height: 300px;
+    width:  300px;
+    margin: 12px ;
+    border-radius: 3%;
+    box-shadow: rgb(245, 179, 94) -3px -3px;
+
+
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl{
+    max-width: 1240px;
+}
+.Rowcss{
+    border-bottom: chocolate solid 3px;
+}
+
+img {
+    float:left;
+}
+
+.h3CssInNewsUser{
+    padding-top: 3%;
+}
