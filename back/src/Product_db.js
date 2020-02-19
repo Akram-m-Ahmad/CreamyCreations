@@ -29,6 +29,18 @@ const initializeDatabase = async () => {
       throw new Error("Could not retrieve product");
     }
   };
+  const getProductsByCategory = async id => {
+    try {
+      const rows = await db.all(` SELECT id,name,description,price FROM Products where Categories_ID=${id}`
+      );
+      if (rows.length == 0) {
+        throw new Error(`product with category id ${id} is not found`);
+      }
+      return rows;
+    } catch (err) {
+      throw new Error(err);
+    }
+  };
 
   const createProducts = async props => {
     const { name, description, price } = props;
@@ -91,12 +103,11 @@ const initializeDatabase = async () => {
 
   const controller = {
     getProducts,
-
+    getProductsByCategory,
     createProducts,
     deleteProducts,
     updateProducts,
     getProductsByID
-
   };
 
   return controller;

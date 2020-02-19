@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Nproducts from './page/Products/Products'
 import Navbar from './components/header'
@@ -9,14 +9,14 @@ import Event from './page/Event/Event'
 
 
 class App extends Component {
-  
+
   render() {
     return (
       <>
-      <Navbar/>
-      {/* <Event/> */}
-      <Nproducts/>
-{/* <News/> */}
+        <Navbar />
+        {/* <Event/> */}
+        <Nproducts />
+        {/* <News/> */}
       </>
     );
   }

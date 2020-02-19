@@ -54,7 +54,11 @@ const startProduct = async () => {
     res.json(result);
   });
 
-
+  app.get('/OrderByCatProducts/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await controller.getProductsByCategory(id);
+    res.json(result);
+  });
 
 
 }

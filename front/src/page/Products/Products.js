@@ -3,8 +3,8 @@ import '../Products/Products.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown, MenuItem, Button, ButtonToolbar, DropdownButton, SplitButton, Container, Row, Col, FormControl, Nav, thumbnail, Table, Image } from 'react-bootstrap';
 import Modal from "../../components/Model";
-import ImageGallery from 'react-image-gallery';
-import ProductsItem from '../../components/ProdectsItem'
+// import ImageGallery from 'react-image-gallery';
+import CategoryItems from '../../components/CategoryItems'
 
 export default class Products extends React.Component {
   constructor(props) {
@@ -14,17 +14,18 @@ export default class Products extends React.Component {
       modal: false,
       name: "",
       modalInputName: "",
-      Products: [],
+      // Products: [],
       Categories: [],
-      Cate: []
+      Cate: [],
+      Images: []
     };
   }
 
   async componentDidMount() {
-    //Products
+    /* //Products
     const response = await fetch('http://localhost:8080/Products/');
     const result = await response.json();
-    console.log(result);
+    console.log(result); */
     //Gategories
     const responseG = await fetch('http://localhost:8080/Categories/');
     const resultG = await responseG.json();
@@ -38,9 +39,10 @@ export default class Products extends React.Component {
     const resulta = await responseID.json();
     console.log(resulta);
     this.setState({
-      Products: result, error: "none",
-      Categories: resultG, error: "none",
-      Cate: resulta, error: "none"
+/*       Products: result, error: "none",
+ */      Categories: resultG, error: "none",
+      Cate: resulta, error: "none",
+      Images: resultI, error: "none"
     });
 
 
@@ -75,7 +77,7 @@ export default class Products extends React.Component {
   render() {
 
     return (
-      <>
+      <div>
 
         <Modal className="formm" show={this.state.modal} handleClose={e => this.modalClose(e)}>
           <br />
@@ -112,64 +114,35 @@ export default class Products extends React.Component {
           </div>
         </Modal>
 
+
+
         <Container>
+          {this.state.Images.map((image) => (
+            <p>{image.path}</p>
+          ))}
+          <div>
 
-          <Container>
 
-            {this.state.Cate.map(Categorie => (
-              <div>
-                <h1 className="topicPro">{Categorie.name}</h1>
+            <Row>
 
-                <Row>
-                  {this.state.Products.map(product => (
+              {this.state.Categories.map((cat, index) => (
 
-                    <ProductsItem value={product} />
-                  )
-                  )
-                  }
-                </Row>
-              </div>
-            )
+                <div>
 
-            )}
-          </Container>
+                  <h1 className="topicPro">{this.state.catName}</h1>
+                  <CategoryItems
+                    value={cat.ID}
+                    key={index} />
+                </div>
+
+              ))}
+
+            </Row>
+          </div>
+
+
         </Container>
-
-
-
-
-
-        {/* 
-
-        <Container>
-
-          {this.state.Categories.map(Categorie => (
-            <div>
-              <h1 className="topicPro">{Categorie.name}</h1>
-
-              <Row>
-                {this.state.Products.map(product => (
-
-                  <ProductsItem value={product} />
-                )
-                )
-                }
-              </Row>
-            </div>
-          )
-
-          )}
-        </Container> */}
-
-
-
-
-
-
-
-
-
-      </>
-    )
+        <div />
+      </div>)
   }
 }

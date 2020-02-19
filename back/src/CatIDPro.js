@@ -4,7 +4,7 @@ const CatIDPro = async () => {
     const db = await sqlite.open('./CreamyCeartiondb.sqlite');
 
     const getCatIDPro = async orderBy => {
-        let stmt = "select Categories.name from Products , Categories   WHERE Products.Categories_ID = Categories.ID";
+        let stmt = "select Categories.name from Products , Categories WHERE Products.Categories_ID = Categories.ID";
 
         try {
             const rows = await db.all(stmt);
