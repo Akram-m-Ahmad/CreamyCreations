@@ -27,7 +27,7 @@ class News extends Component {
 
             <Col xs={12} md={12}>
               <h1 className="h1Newscss" >News</h1>
-            <Image  className="mainImg "  src={require("../../Image/img3.jpg" )}/>
+            <Image  className="mainImg "  src="/Image/img3.jpg" />
             </Col>
        
        {this.state.News.map(nnews => (

@@ -17,8 +17,8 @@ class Events extends Component {
                     <bootstrap.Container>
 
                         <bootstrap.Row class="wrapper">
-                            <EventItem name="crepe banana" source={require('../../Image/img1.jpg')} alt="First cake" price="10$" ingredients="banana, choclate, darkchoclate" />
-                            <EventItem name="crepe strawberry" source={require("../../Image/img2.jpg")} alt="Second cake" price="10$" ingredients="banana, choclate, strawberry whitechoclate" />
+                            <EventItem name="crepe banana" source='/Image/img1.jpg' alt="First cake" price="10$" ingredients="banana, choclate, darkchoclate" />
+                            <EventItem name="crepe strawberry" source="/Image/img2.jpg" alt="Second cake" price="10$" ingredients="banana, choclate, strawberry whitechoclate" />
 
                         </bootstrap.Row>
 

@@ -32,14 +32,14 @@ const NewsDatabase = async()=>{
       };
      
       const createNews = async props => {
-        const {description,date} = props;
-        console.log(description,date)
+        const {description,date,newsImg} = props;
+        console.log(description,date,newsImg)
         if (!props  || !description||!date) {
           throw new Error(`You must provide a  description and date`);
         }
         try {
           const result = await db.run(
-              `Insert INTO News (description,date) VALUES ('${description}',${date})`
+              `Insert INTO News (description,date,newsImg) VALUES ('${description}',${date},${newsImg})`
           );
           return result.stmt.lastID;
         } catch (err) {
@@ -62,8 +62,8 @@ const NewsDatabase = async()=>{
       };
     
       const updateNews = async (id, props) => {
-        const { name,description,date } = props;
-        if (!props && !(props.description && props.date)) {
+        const { name,description,date ,newsImg} = props;
+        if (!props && !(props.description && props.date &&props.newsImg)) {
           throw new Error(`You must provide a name or an description`);
         }
     
@@ -71,7 +71,7 @@ const NewsDatabase = async()=>{
         if ( description && date) {
           stmt = `UPDATE News set description= '${description}' , date =${date} where id = ${id}`;
           console.log(stmt);
-        } else if (description && !date) {
+        } else if (description && !date ) {
           stmt =`UPDATE News set description= '${description}'  where id = ${id}`;
         } else {
           stmt = `UPDATE News set date =${date} where id = ${id}`;

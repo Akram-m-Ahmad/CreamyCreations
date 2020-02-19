@@ -16,7 +16,7 @@ function ProdectsItem(props) {
         <div className="flip-box">
           <div className="flip-box-inner">
             <div className="flip-box-front">
-              <img className="ImagePr" src={require("../Image/image.jpg")} alt="Paris" />
+              <img className="ImagePr" src="/image.jpg" alt="Paris" />
             </div>
             <div className="flip-box-back">
 

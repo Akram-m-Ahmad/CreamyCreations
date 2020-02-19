@@ -5,7 +5,7 @@ import Navbar from './components/header'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import News from './page/News/News'
 import Event from './page/Event/Event'
-
+import Pro from './page/Admin/productA'
 
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
       {/* <Event/> */}
       {/* <Nproducts/> */}
 <News/>
+{/* <Pro/> */}
       </div>
     );
   }

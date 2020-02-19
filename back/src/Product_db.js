@@ -48,7 +48,7 @@ const initializeDatabase = async () => {
   const deleteProducts = async id => {
     try {
       const result = await db.run(
-        `Delete from Products where id = ${id}`
+        `DELETE FROM Products where id = ${id}`
       );
       if (result.stmt.changes == 0) {
         throw new Error(`Product with id ${id} doesnt exist`);
