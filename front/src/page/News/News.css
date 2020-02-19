@@ -2,15 +2,19 @@
     color: chocolate;
     font-size: 55px;
     margin:0px;
-    padding-left: 4%;
+    padding-left: 4%;   
+     border-bottom: chocolate solid 3px;
+
 }
 .chcoRow{
     border-bottom: chocolate solid 3px;
     padding: 0%;
 }
 .mainImg{
-    height: 300px;
+    height: 400px;
     width:  100%;
+    border-bottom: chocolate solid 3px;
+
 
 }
 .imagesCss{
@@ -23,10 +27,11 @@
 
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl{
-    max-width: 1240px;
+    max-width: 100%;
 }
 .Rowcss{
     border-bottom: chocolate solid 3px;
+    margin: 0;
 }
 
 img {

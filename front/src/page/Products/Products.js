@@ -130,7 +130,6 @@ export default class Products extends React.Component {
                 </Row>
               </div>
             )
-
             )}
           </Container>
         </Container>
