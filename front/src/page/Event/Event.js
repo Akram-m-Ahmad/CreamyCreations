@@ -6,10 +6,26 @@ import EventItem from '../../components/eventItem';
 
 
 class Events extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Events: []
+        };
+    }
 
+    async componentDidMount() {
+        //Events
+        const response = await fetch('http://localhost:8080/Events/');
+        const result = await response.json();
+        console.log(result);
+
+        this.setState({
+            Events: result, error: "none",
+        });
+    }
     render() {
         return (
-            <div class="images">
+            <div class="imagess">
                 <div class="top">
                     <div class="title-container"><h1 class="title">Events</h1></div>
 
@@ -17,9 +33,13 @@ class Events extends Component {
                     <bootstrap.Container>
 
                         <bootstrap.Row class="wrapper">
-                            <EventItem name="crepe banana" source={require('../../Image/img1.jpg')} alt="First cake" price="10$" ingredients="banana, choclate, darkchoclate" />
-                            <EventItem name="crepe strawberry" source={require("../../Image/img2.jpg")} alt="Second cake" price="10$" ingredients="banana, choclate, strawberry whitechoclate" />
 
+
+                            {this.state.Events.map(event => (
+                                <EventItem value={event} />
+                            )
+                            )
+                            }
                         </bootstrap.Row>
 
                     </bootstrap.Container>

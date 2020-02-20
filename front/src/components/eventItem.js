@@ -3,23 +3,24 @@ import * as bootstrap from 'react-bootstrap';
 import '../page/Event/Event.css';
 
 
-function EventItem(props){
+function EventItem(props) {
     return (
         <bootstrap.Col>
-        <bootstrap.Image
-            class="pic"
-            src={props.source}
-            alt={props.alt}
-            roundedCircle
-            width="200px"
-            height="200px"
-                    />
-        <div class="desc">
-            <p><span class="name">Name:</span><large>{props.name}</large></p>
-            <p><span class="name">Price:</span><large>{props.price}</large></p>
-            <p><span class="name">Ingredients:</span><large>{props.ingredients}</large></p>
-        </div>
-    </bootstrap.Col>
+            <bootstrap.Image
+                className="pic"
+                src={`/Image/${props.value.eventImg}`}
+
+                roundedCircle
+                width="200px"
+                height="200px"
+            />
+
+            <div class="desc">
+                <p><span class="name">Name:</span><large>{props.value.description}</large></p>
+                <p><span class="name">Price:</span><large>{props.value.location}</large></p>
+                <p><span class="name">Ingredients:</span><large>{props.value.date}</large></p>
+            </div>
+        </bootstrap.Col>
 
     );
 } export default EventItem;

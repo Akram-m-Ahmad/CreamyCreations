@@ -123,7 +123,7 @@ export default class Products extends React.Component {
           <div>
 
 
-            <Row>
+            <Row className="roww">
 
               {this.state.Categories.map((cat, index) => (
 

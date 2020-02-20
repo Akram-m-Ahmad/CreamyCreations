@@ -16,7 +16,7 @@ function CategoryItems(props) {
   }
   return (
     <>
-      {alert("hello")}
+      {/* {alert("hello")} */}
       {productByCat.map((product, index) => (
         <>
 
@@ -24,7 +24,7 @@ function CategoryItems(props) {
             <div className="flip-box">
               <div className="flip-box-inner">
                 <div className="flip-box-front">
-                  <img className="ImagePr" src={require("../Image/image.jpg")} alt="Paris" />
+                  <img className="ImagePr" src="/Image/image.jpg" alt="Paris" />
                 </div>
                 <div className="flip-box-back">
                   <h2 className='topicPro'>Akram</h2>

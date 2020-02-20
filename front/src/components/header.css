@@ -17,4 +17,13 @@ body {
    border-right: 5px solid dimgrey;
    background-color: gainsboro;
 }
-@import "~react-image-gallery/styles/css/image-gallery.css";
+
+a{
+    color: blanchedalmond;
+    font-size:30px;
+    text-decoration: none;
+}
+a:hover{
+     text-decoration: none;
+    color:black;
+}
