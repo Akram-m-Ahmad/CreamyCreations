@@ -1,10 +1,7 @@
 import React from 'react';
 import '../page/Products/Products.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Dropdown, MenuItem, Button, ButtonToolbar, DropdownButton, SplitButton, Container, Row, Col, FormControl, Nav, thumbnail, Table, Image } from 'react-bootstrap';
-import Modal from "../components/Model";
-import ImageGallery from 'react-image-gallery';
-
+import { Button, Col } from 'react-bootstrap';
 
 function ProdectsItem(props) {
 

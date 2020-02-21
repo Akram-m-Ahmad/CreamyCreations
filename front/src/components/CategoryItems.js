@@ -1,9 +1,9 @@
 import React from 'react';
 import '../page/Products/Products.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  Form, Button   , Col } from 'react-bootstrap';
+import { Form, Button, Col, InputGroup } from 'react-bootstrap';
 import Modal from "./Model";
- 
+
 
 
 export default class CategoryItems extends React.Component {
@@ -29,11 +29,13 @@ export default class CategoryItems extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    alert('Name: ' + this.state.name);
-    alert('phone: ' + this.state.phone);
-    alert('date: ' + this.state.date);
+  async handleSubmit(event) {
     event.preventDefault();
+
+    const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=${this.state.catID}`);
+    const resultO = await responseO.json();
+    window.location.reload();
+
   }
   async componentDidMount() {
 
@@ -41,7 +43,7 @@ export default class CategoryItems extends React.Component {
     const response = await fetch(`http://localhost:8080/OrderByCatProducts/${this.state.catID}`);
     const result = await response.json();
     //Order
-    // const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=1`);
+    //const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=1`);
     //const resultO = await responseO.json();
 
     this.setState({
@@ -77,7 +79,7 @@ export default class CategoryItems extends React.Component {
     return (
       <>
         <Modal show={this.state.modal} handleClose={e => this.modalClose(e)}>
-
+          <br />
           <form onSubmit={this.handleSubmit}>
 
 
@@ -89,12 +91,12 @@ export default class CategoryItems extends React.Component {
 
             <Form.Group  >
               <Form.Label>Phone</Form.Label>
-              <Form.Control name="phone" tybe="number" value={this.state.phone} onChange={this.handleChange} />
+              <Form.Control name="phone" type="number" value={this.state.phone} onChange={this.handleChange} />
             </Form.Group>
 
             <Form.Group >
               <Form.Label>Date</Form.Label>
-              <Form.Control name="date" tybe="date" value={this.state.date} onChange={this.handleChange} />
+              <Form.Control name="date" type="date" value={this.state.date} onChange={this.handleChange} />
             </Form.Group>
 
             {/* <input type="date" name="date" value={this.state.date} onChange={this.handleChange} /> */}
