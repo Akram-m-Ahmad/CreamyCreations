@@ -1,0 +1,23 @@
+#home{
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 800px;
+  margin-top: 20px;
+}
+.card {
+  margin-top: 20px;
+  background-color:rgb(251, 255, 190);
+  color: black;
+  justify-content: center;
+
+}
+.header {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serifx;
+  font-size: xx-large;
+  color: darkgray;
+}
+.logo {
+    border-radius: 7px;
+    width: 100px;
+}

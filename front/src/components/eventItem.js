@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import * as bootstrap from 'react-bootstrap';
 import '../page/Event/Event.css';
 
@@ -10,7 +10,7 @@ function EventItem(props) {
                 className="pic"
                 src={`/Image/${props.value.eventImg}`}
 
-                roundedCircle
+                 
                 width="200px"
                 height="200px"
             />

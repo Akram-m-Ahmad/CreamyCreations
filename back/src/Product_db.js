@@ -31,7 +31,7 @@ const initializeDatabase = async () => {
   };
   const getProductsByCategory = async id => {
     try {
-      const rows = await db.all(` SELECT id,name,description,price FROM Products where Categories_ID=${id}`
+      const rows = await db.all(` SELECT id,name,description,price,proImg FROM Products where Categories_ID=${id}`
       );
       if (rows.length == 0) {
         throw new Error(`product with category id ${id} is not found`);

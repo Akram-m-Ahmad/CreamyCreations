@@ -19,7 +19,6 @@ function ProdectsItem(props) {
               <img className="ImagePr" src="/image.jpg" alt="Paris" />
             </div>
             <div className="flip-box-back">
-
               <h2 className='topicPro'>Akram</h2>
               <p  ><span>Name:</span> {props.value.name}</p>
               <p><span>Description:</span> {props.value.description}</p>
