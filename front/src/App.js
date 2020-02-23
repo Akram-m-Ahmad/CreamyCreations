@@ -9,9 +9,11 @@ import Footer from './components/footer'
 import Home from './page/home/home'
 import Orders from './page/Admin/Orders'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Scroll from './components/Scroll'
 class App extends Component {
-
+   
   render() {
+        
     return (
 
       <BrowserRouter>
@@ -26,8 +28,9 @@ class App extends Component {
 
             <Route exact path="/" component={Home} />
           </Switch>
-        </div>
+         </div>
         <Footer />
+       <Scroll/>
       </BrowserRouter>
 
     );

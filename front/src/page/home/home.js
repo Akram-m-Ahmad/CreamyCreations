@@ -188,7 +188,7 @@ class home extends React.Component {
 
                     </bootstrap.Carousel.Item>
                 </bootstrap.Carousel>
-                <bootstrap.Card class="card">
+                <bootstrap.Card >
                     <bootstrap.Card.Header >About Lama</bootstrap.Card.Header>
                     <bootstrap.Card.Body>
                         <bootstrap.Card.Title>Lama Started With Creamy Creation</bootstrap.Card.Title>

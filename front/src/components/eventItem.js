@@ -1,26 +1,26 @@
 import React from 'react';
-import * as bootstrap from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import '../page/Event/Event.css';
 
 
 function EventItem(props) {
     return (
-        <bootstrap.Col>
-            <bootstrap.Image
-                className="pic"
-                src={`/Image/${props.value.eventImg}`}
-
-                 
-                width="200px"
-                height="200px"
-            />
-
-            <div class="desc">
-                <p><span class="name">Name:</span><large>{props.value.description}</large></p>
-                <p><span class="name">Price:</span><large>{props.value.location}</large></p>
-                <p><span class="name">Ingredients:</span><large>{props.value.date}</large></p>
+        
+        <Container>
+        <div className="content">
+            <div className="cardd">
+                <div className="firstinfo"><img className="imgev" src={`/Image/${props.value.eventImg}`} />
+                    <div className="profileinfo">
+                        
+                            <h1><span>Location:</span> {props.value.location}</h1>
+                            <h3><span>Date:</span> {props.value.date}</h3>
+                            <p className="bio"><span>Description:</span> {props.value.description}</p>
+                    </div>
+                </div>
             </div>
-        </bootstrap.Col>
-
+            <div className="badgescard"> <span className="devicons devicons-django" /><span className="devicons devicons-python"> </span><span className="devicons devicons-codepen" /><span className="devicons devicons-javascript_badge" /><span className="devicons devicons-gulp" /><span className="devicons devicons-angular" /><span className="devicons devicons-sass"> </span></div>
+        </div>
+        
+            </Container>
     );
 } export default EventItem;
