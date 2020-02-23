@@ -18,7 +18,7 @@ body {
    background-color: gainsboro;
 }
 
-a{
+/* a{
     color: blanchedalmond;
     font-size:30px;
     text-decoration: none;
@@ -26,4 +26,62 @@ a{
 a:hover{
      text-decoration: none;
     color:orange;
+} */
+
+.navbar-toggler-icon::after{
+   color: teal;
+      content: ' \2026';
+      font-size: 60px;
+    margin-bottom: 15px;
+     
+}
+
+
+a{
+    font-weight: bold;
+    font-size:25px;
+  color: #6E5C34;
+  text-decoration: none;
+  display:block;
+  
+  position: relative;
+  overflow: hidden;
+  padding:0 6px;
+  text-transform: uppercase;
+  transition: color .3s cubic-bezier(0.11, 0.7, 0, 1);
+  
+  
+  letter-spacing: .15rem;
+  line-height: 1.8;
+}
+
+a:hover{
+  color:white;
+  text-decoration: none;
+}
+
+.link5:after {
+  position: absolute;
+  top:0; bottom: 0;
+  right: 0;left: 0;
+  display: block;
+  background-color:teal;
+  content: "";
+  transform: translate3d(0,100%,0);
+  z-index:-1;
+}
+
+.link5:hover:after {
+  transform: translate3d(0,0,0);
+  transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+}
+
+.link5:hover{
+  color: #fff;
+}
+
+.logo{
+    border: teal 1px solid;
+    width:150px ;
+    height: 100px;border-radius: 5px;
 }

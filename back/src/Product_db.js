@@ -29,6 +29,11 @@ const initializeDatabase = async () => {
       throw new Error("Could not retrieve product");
     }
   };
+
+
+
+
+
   const getProductsByCategory = async id => {
     try {
       const rows = await db.all(` SELECT id,name,description,price,proImg FROM Products where Categories_ID=${id}`

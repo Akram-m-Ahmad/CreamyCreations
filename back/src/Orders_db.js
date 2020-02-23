@@ -42,9 +42,9 @@ const OrdersDatabase = async () => {
     }
     try {
       const result = await db.run(
-        `Insert into Orders (date,username,userPhone,Products_ID ) values (${date},'${username}',${userPhone},${Products_ID})`
+        `Insert into Orders (date,username,userPhone,Products_ID ) values (${date},'${username}',${userPhone},'${Products_ID}')`
       );
-
+      //http://localhost:8080/Orders/create/?date=2010&username=cscsd&userPhone=3242342&Products_ID=5545
       //to return the last Id added
       return result.stmt.lastID;
     } catch (err) {

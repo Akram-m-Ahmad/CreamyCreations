@@ -13,11 +13,101 @@
 
 }
 .header {
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serifx;
-  font-size: xx-large;
+font-family:  'Allan'; 
+ font-size:70px;
+ padding: 5px;
+
   color: darkgray;
 }
-.logo {
-    border-radius: 7px;
-    width: 100px;
+
+.effect12 {
+ 
+  
+  color: #fff;
+  background:teal;
+  text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+
+
+
+.slidera{
+font-weight: bold;
+  bottom:10px;
+  left: 10px;
+  font-size: 20px;
+color: teal;
+width: 150px;
+height:120px ;
+background-color: white;
+font-family:  'Allan'; 
+}
+
+
+
+
+
+ 
+.social { 
+  color:white;
+left: 70px;
+  position: fixed;
+  top: 200px;
+    font-size: 10px;
+}
+.social ul { 
+  color:white;
+  padding: 0px; 
+
+  -webkit-transform: translate(-270px, 0);
+  -moz-transform: translate(-270px, 0);
+  -ms-transform: translate(-270px, 0);
+  -o-transform: translate(-270px, 0);
+  transform: translate(-270px, 0);
+}
+.social ul li {
+  display: block;
+  margin: 5px; 
+  color:white;
+  
+  width: 270px;
+  text-align: right;
+  padding: 10px;
+  -webkit-border-radius: 0 30px 30px 0;
+  -moz-border-radius: 0 30px 30px 0;
+  border-radius: 0 30px 30px 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.social ul li:hover { 
+  -webkit-transform: translate(110px, 0);
+  -moz-transform: translate(110px, 0);
+  -ms-transform: translate(110px, 0);
+  -o-transform: translate(110px, 0);
+  transform: translate(110px, 0);
+  background:teal;
+}
+.social ul li:hover a {
+  color:white;
+}
+.social ul li:hover i {
+ 
+  color:white;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+ 
+
+.aaa{
+  font-size:15px;
 }

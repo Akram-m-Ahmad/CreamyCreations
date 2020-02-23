@@ -14,15 +14,15 @@ export default function header() {
 
   return (
 
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home"> <img alt="Qries" src='Image/creamy.jpeg' className="logo" /></Navbar.Brand>
+    <Navbar collapseOnSelect expand="lg" bg=" " variant=" ">
+      <Navbar.Brand  > <img alt="Qries" src='Image/creamy.jpeg' className='logo'  /></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link ><NavLink exact to="/">Home</NavLink></Nav.Link>
-          <Nav.Link ><NavLink to="/Nproducts">Products</NavLink></Nav.Link>
-          <Nav.Link><NavLink to="/News">News</NavLink></Nav.Link>
-          <Nav.Link ><NavLink to="/Events">Events</NavLink></Nav.Link>
+          <Nav.Link ><NavLink exact to="/"> <a  className="link5">Home</a></NavLink></Nav.Link>
+          <Nav.Link ><NavLink to="/Nproducts"><a   className="link5">Products</a></NavLink></Nav.Link>
+          <Nav.Link><NavLink to="/News"><a  className="link5">News</a></NavLink></Nav.Link>
+          <Nav.Link ><NavLink to="/Events"><a className="link5">Events</a></NavLink></Nav.Link>
 
         </Nav>
 

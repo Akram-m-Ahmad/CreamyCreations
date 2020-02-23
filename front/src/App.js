@@ -7,12 +7,15 @@ import News from './page/News/News'
 import Event from './page/Event/Event'
 import Footer from './components/footer'
 import Home from './page/home/home'
+import Orders from './page/Admin/Orders'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 class App extends Component {
 
   render() {
     return (
+
       <BrowserRouter>
+        {/* <Orders /> */}
         <div className="App">
           <Navbar />
           <Switch>

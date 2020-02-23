@@ -12,7 +12,7 @@ export default class CategoryItems extends React.Component {
 
     this.state = {
       products: [],
-
+      ProId: '',
       name: '',
       phone: '',
       date: '',
@@ -29,22 +29,13 @@ export default class CategoryItems extends React.Component {
     });
   }
 
-  async handleSubmit(event) {
-    event.preventDefault();
 
-    const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=${this.state.catID}`);
-    const resultO = await responseO.json();
-    window.location.reload();
-
-  }
   async componentDidMount() {
 
     //Products
     const response = await fetch(`http://localhost:8080/OrderByCatProducts/${this.state.catID}`);
     const result = await response.json();
-    //Order
-    //const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=1`);
-    //const resultO = await responseO.json();
+
 
     this.setState({
 
@@ -54,9 +45,17 @@ export default class CategoryItems extends React.Component {
       name: "",
       modalInputName: ""
     })
+  
 
   }
+  async handleSubmit(event) {
+   
+    event.preventDefault()
+    const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=dw`);
+    const resultO = await responseO.json();
+    window.location.reload();
 
+  }
 
 
 
@@ -98,6 +97,7 @@ export default class CategoryItems extends React.Component {
               <Form.Label>Date</Form.Label>
               <Form.Control name="date" type="date" value={this.state.date} onChange={this.handleChange} />
             </Form.Group>
+
 
             {/* <input type="date" name="date" value={this.state.date} onChange={this.handleChange} /> */}
 

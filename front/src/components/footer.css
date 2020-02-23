@@ -1,5 +1,8 @@
 #footer {
-  background-color: #fbffbe;
+  background-color: teal;
   text-align: center;
   margin-top: 200px;
+  color: white;
+   font-weight: bold;
+  padding-bottom: 4px;
 }
