@@ -5,7 +5,6 @@ import { Form, Button, Col, InputGroup } from 'react-bootstrap';
 import Modal from "./Model";
 
 
-
 export default class CategoryItems extends React.Component {
   constructor(props) {
     super(props);
@@ -38,9 +37,7 @@ export default class CategoryItems extends React.Component {
 
 
     this.setState({
-
       products: result, error: "none",
-
       modal: false,
       name: "",
       modalInputName: ""
