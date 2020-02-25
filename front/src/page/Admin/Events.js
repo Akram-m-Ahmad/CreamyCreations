@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddEventForm } from '../../components/AddEventForm';
-// import Modal from "./Modal";
-
+ 
 export default class Events extends React.Component {
     constructor(props) {
         super(props);

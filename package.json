@@ -16,6 +16,7 @@
     "@hustlelikeaboss/react-gallery": "^1.0.1",
     "concurrently": "^5.1.0",
     "mobiscroll": "^3.0.0-beta6",
+    "multer": "^1.4.2",
     "onsenui": "^2.10.10",
     "react-alert": "^6.0.0",
     "react-alert-template-basic": "^1.0.0",

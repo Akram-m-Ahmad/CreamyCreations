@@ -33,7 +33,7 @@ const Eventsdatabase = async()=>{
      
       const createEvents  = async props => {
         const { id, description, location, date,eventImg} = props;
-        if (!id || !description || !location || !date) {
+        if ( !description || !location || !date) {
           throw new Error(`You must provide a  id `);
         }
         try {
