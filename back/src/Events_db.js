@@ -32,13 +32,13 @@ const Eventsdatabase = async()=>{
       };
      
       const createEvents  = async props => {
-        const { id, description, location, date} = props;
-        if (!id || !description || !location || !date) {
+        const { id, description, location, date,eventImg} = props;
+        if ( !description || !location || !date) {
           throw new Error(`You must provide a  id `);
         }
         try {
           const result = await db.run(
-              `insert INTO Events (description, location, date) VALUES ('${description}', '${location}', ${date})`
+              `insert INTO Events (description, location, date,eventImg) VALUES ('${description}', '${location}', ${date},'${eventImg}')`
           );
           return result.stmt.lastID;
         } catch (err) {

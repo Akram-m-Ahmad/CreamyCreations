@@ -27,7 +27,7 @@ export default class AdminProduct extends React.Component {
 
                     <Row>
                         {this.state.Products.map((product, index) =>
-                            <Col style={{ width: '50%' }}>
+                            <Col >
                                 <Card style={{ width: '20rem' }, { margin: '20px' }}>
                                     <Card.Img variant="top" src={`/Image/${product.proImg}`} />
                                     <Card.Header>{product.name}</Card.Header>
@@ -35,10 +35,15 @@ export default class AdminProduct extends React.Component {
                                         <Card.Title>{product.price} $</Card.Title>
                                         <Card.Text>{product.description}</Card.Text>
                                         <Button variant="info"
-                                           style={{width: "100px"}}
+                                            style={{ width: "100px" }}
                                         ><MdModeEdit />
                                         </Button>
-                                        <Button className="operation" variant="danger"><MdDeleteForever />
+                                        <Button
+                                            className="operation"
+                                            variant="danger"
+                                            style={{ width: "100px" }}
+
+                                        ><MdDeleteForever />
                                         </Button>
                                     </Card.Body>
                                 </Card>

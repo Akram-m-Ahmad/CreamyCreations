@@ -12,6 +12,7 @@ import AddProduct from './page/Admin/add-product'
 import AdminProducts from './page/Admin/productA'
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import EventsA  from "./page/Admin/Events"
 import Scroll from './components/Scroll'
 class App extends Component {
    
@@ -21,6 +22,7 @@ class App extends Component {
 
       <BrowserRouter>
         {/* <Orders /> */}
+<EventsA/>
         <div className="App">
           <Navbar />
           <AdminProducts />

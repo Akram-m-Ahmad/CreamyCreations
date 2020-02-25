@@ -6,11 +6,12 @@ import Eventsdatabase from './Events_db'
 import getProductImageDatabase from './ProductImage_db'
 import OrdersDatabase from './Orders_db'
 import CatIDProData from './CatIDPro'
+const multer = require('multer');
+const fs = require('fs');
 const app = express();
-
+const upload = multer({ dest: './Image' })
 app.listen(8080, () => { console.log("Listening on port 8080") });
-
-
+ 
 //Products  
 const startProduct = async () => {
 
@@ -174,11 +175,16 @@ const startEvents = async () => {
   });
 
 
+  app.get('/Events/delete/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await controller.deleteEvents(id);
+    res.json(result);
+  });
+
 
   app.get('/Events/create', async (req, res) => {
-    const { description, location, date } = req.query;
-    console.log({ id, description, location, date })
-    const result = await controller.createEvents({ description, location, date });
+    const { description, location, date, eventImg } = req.query;
+    const result = await controller.createEvents({ description, location, date, eventImg });
     res.json(result);
   });
 
@@ -310,7 +316,13 @@ const startCatIDPro = async () => {
 }
 startCatIDPro()
 
+// Event Image for multer
+
 
  
- 
 
+app.post("/testfile", upload.single('image'), async (req, res, next) => {
+  console.log(req.file)
+  console.log(req.body)
+  res.json({ message: 'ok' })
+})

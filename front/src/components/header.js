@@ -13,7 +13,7 @@ export default function header() {
   return (
 
     <Navbar collapseOnSelect expand="lg" bg=" " variant=" ">
-      <Navbar.Brand  > <img alt="Qries" src='Image/creamy.jpeg' className='logo' /></Navbar.Brand>
+      <Navbar.Brand  > <img alt="logo" src='/logo.jpg' className='logo' /></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
