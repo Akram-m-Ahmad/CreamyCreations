@@ -27,8 +27,6 @@ export default class CategoryItems extends React.Component {
 
     });
   }
-
-
   async componentDidMount() {
 
     //Products
@@ -114,11 +112,11 @@ export default class CategoryItems extends React.Component {
                   </div>
                   <div className="flip-box-back">
                     <h2 className='topicPro'>Akram</h2>
-                    <p><span>Name:</span> {product.name}</p>
+                    <p><span >Name:</span> {product.name}</p>
                     <p><span>Description:</span> {product.description}</p>
                     <p><span>Price:</span> {product.price} $</p>
                     {/* <p><span>Price:</span> {props.value.Categories_ID} $</p> */}
-                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e)} variant="danger">Add new product</Button>
+                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e)} variant="danger">Add new Order</Button>
                   </div>
                 </div>
               </div>

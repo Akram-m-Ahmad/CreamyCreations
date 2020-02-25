@@ -1,3 +1,7 @@
+#wrapper{
+  width: 85%;
+  margin: 0 auto;
+}
 .content {
   position: relative;
   animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
@@ -18,12 +22,12 @@
   justify-content: center;
 }
 .cardd:after {
-    
+  
   content: '';
   display: block;
   width:480px;
   height:1000px;
-  background: rgb(191, 250, 250);
+  background: #bffafa;
   position: absolute;
   animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
 }
@@ -31,7 +35,6 @@
 .badgescard {
   padding: 10px 20px;
   border-radius: 3px;
-  background-color: #ECECEC;
   width: 480px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -39,7 +42,7 @@
   left: 10px;
   bottom: 10px;
   animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
-}
+} 
 .badgescard span {
   font-size: 1.6em;
   margin: 0px 6px;
@@ -70,12 +73,12 @@
 span{
   font-weight: bold;
   color: rgb(56, 100, 100);
+  margin-right: 20px;
 }
 .firstinfo .profileinfo .bio {
   padding: 10px 0px;
   font-size: 24px;
   color: #5A5A5A;
-  line-height: 1.2em;
   font-style: initial;
 }
 

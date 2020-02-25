@@ -8,6 +8,9 @@ import Event from './page/Event/Event'
 import Footer from './components/footer'
 import Home from './page/home/home'
 import Orders from './page/Admin/Orders'
+import AddProduct from './page/Admin/add-product'
+import AdminProducts from './page/Admin/productA'
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Scroll from './components/Scroll'
 class App extends Component {
@@ -20,14 +23,15 @@ class App extends Component {
         {/* <Orders /> */}
         <div className="App">
           <Navbar />
-          <Switch>
+          <AdminProducts />
+          {/* <Switch>
 
             <Route path="/Nproducts" component={Nproducts} />
             <Route path="/News" component={News} />
             <Route path="/Events" component={Event} />
-
+            <Route path="/AdminAddProduct" component={AddProduct} />
             <Route exact path="/" component={Home} />
-          </Switch>
+          </Switch> */}
          </div>
         <Footer />
        <Scroll/>

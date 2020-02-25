@@ -8,15 +8,8 @@ class footer extends React.Component {
     render() {
         return (
             <div id="footer">
-
                 <hr />
-
-
                 <p>Copyright &copy; 2020 Creamy Creations All Rights Reserved</p>
-
-
-
-
             </div>
         );
     }

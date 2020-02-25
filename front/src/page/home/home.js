@@ -7,15 +7,11 @@ import { SocialIcon } from 'react-social-icons';
 class home extends React.Component {
     render() {
         return (
-
             <div id='home'>
                 <br />
                 <h1 className="header  effect12"> Welcome to Lama kitchen  </h1>
-
-
                 <br />
                 <bootstrap.Carousel interval="2000" >
-                   
                     <bootstrap.Carousel.Item>
                         <img
                             className="image"
@@ -24,10 +20,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
                     </bootstrap.Carousel.Item>
 
                     <bootstrap.Carousel.Item>
@@ -49,11 +41,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
                     <bootstrap.Carousel.Item>
                         <img
@@ -63,11 +50,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
                     </bootstrap.Carousel.Item>
 
                     <bootstrap.Carousel.Item>
@@ -78,13 +60,7 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
-
                     <bootstrap.Carousel.Item>
                         <img
                             className="image"
@@ -93,11 +69,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
                     </bootstrap.Carousel.Item>
 
                     <bootstrap.Carousel.Item>
@@ -108,11 +79,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>kitchen and Other</p>
-                        </bootstrap.Carousel.Caption>
                     </bootstrap.Carousel.Item>
 
                     <bootstrap.Carousel.Item>
@@ -135,15 +101,7 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
-
-
-
                     <bootstrap.Carousel.Item>
                         <img
                             className="image"
@@ -152,11 +110,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
                     <bootstrap.Carousel.Item>
                         <img
@@ -166,13 +119,7 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
-
                     <bootstrap.Carousel.Item>
                         <img
                             className="image"
@@ -181,11 +128,6 @@ class home extends React.Component {
                             width="800px"
                             height="500px"
                         />
-                        <bootstrap.Carousel.Caption className='slidera'>
-                            <h3>lama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </bootstrap.Carousel.Caption>
-
                     </bootstrap.Carousel.Item>
                 </bootstrap.Carousel>
                 <bootstrap.Card >

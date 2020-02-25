@@ -49,7 +49,7 @@ export default class Products extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="wrapper">
 
 
 
