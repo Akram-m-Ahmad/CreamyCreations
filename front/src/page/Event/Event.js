@@ -12,7 +12,6 @@ class Events extends Component {
             Events: []
         };
     }
-
     async componentDidMount() {
         //Events
         const response = await fetch('http://localhost:8080/Events/');
@@ -25,7 +24,7 @@ class Events extends Component {
     }
     render() {
         return (
-            <div class="imagess">
+            <div id="wrapper">
                 <div class="top">
 
 
