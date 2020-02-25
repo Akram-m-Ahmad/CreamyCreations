@@ -12,7 +12,7 @@ export default class CategoryItems extends React.Component {
 
     this.state = {
       products: [],
-      ProId: '',
+      ProId: -1,
       name: '',
       phone: '',
       date: '',
@@ -45,23 +45,23 @@ export default class CategoryItems extends React.Component {
       name: "",
       modalInputName: ""
     })
-  
+
 
   }
   async handleSubmit(event) {
-   
+
     event.preventDefault()
-    const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=dw`);
+    const responseO = await fetch(`http://localhost:8080/Orders/create/?date=${this.state.date}&username=${this.state.name}&userPhone=${this.state.phone}&Products_ID=${this.state.proId}`);
     const resultO = await responseO.json();
     window.location.reload();
-
   }
 
 
 
 
-  modalOpen() {
+  modalOpen(proID) {
     this.setState({ modal: true });
+    this.state.ProId = proID;
   }
 
   modalClose() {
@@ -116,12 +116,12 @@ export default class CategoryItems extends React.Component {
                     <img className="ImagePr" src={`/Image/${product.proImg}`} alt="Paris" />
                   </div>
                   <div className="flip-box-back">
-                    <h2 className='topicPro'>Akram</h2>
+                    <h2 className='topicPro'>Product Details</h2>
                     <p><span>Name:</span> {product.name}</p>
                     <p><span>Description:</span> {product.description}</p>
                     <p><span>Price:</span> {product.price} $</p>
                     {/* <p><span>Price:</span> {props.value.Categories_ID} $</p> */}
-                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e)} variant="danger">Add new product</Button>
+                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e, product.ID)} variant="danger">Add new product</Button>
                   </div>
                 </div>
               </div>

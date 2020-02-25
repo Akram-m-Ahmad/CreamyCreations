@@ -9,6 +9,7 @@ import Footer from './components/footer'
 import Home from './page/home/home'
 import Orders from './page/Admin/Orders'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import EventsA  from "./page/Admin/Events"
 import Scroll from './components/Scroll'
 class App extends Component {
    
@@ -18,6 +19,7 @@ class App extends Component {
 
       <BrowserRouter>
         {/* <Orders /> */}
+<EventsA/>
         <div className="App">
           <Navbar />
           <Switch>

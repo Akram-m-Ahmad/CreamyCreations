@@ -176,9 +176,9 @@ const startEvents = async () => {
 
 
   app.get('/Events/create', async (req, res) => {
-    const { description, location, date } = req.query;
-    console.log({ id, description, location, date })
-    const result = await controller.createEvents({ description, location, date });
+    const { description, location, date,eventImg } = req.query;
+    console.log({ id, description, location, date, eventImg })
+    const result = await controller.createEvents({ description, location, date, eventImg });
     res.json(result);
   });
 

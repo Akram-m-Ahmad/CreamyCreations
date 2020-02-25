@@ -27,7 +27,7 @@ class Events extends Component {
         return (
             <div class="imagess">
                 <div class="top">
- 
+
 
                     <bootstrap.Container>
 
