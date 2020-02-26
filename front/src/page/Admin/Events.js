@@ -41,31 +41,26 @@ import { AddEventForm } from '../../components/AddEventForm';
 
 
 
-
+     //src = {`http://localhost:8080/images/${Event.eventImg}`
+ 
     render() {
         let addModalClose = () => this.setState({ addModalShow: false });
-
         return (
             <>
-
-
-                <ButtonToolbar>
+               <ButtonToolbar>
                     <Button
                         variant="primary"
                         onClick={() => this.setState({ addModalShow: true })}
                     > Add New Event </Button>
-
                     <AddEventForm
                         show={this.state.addModalShow}
                         onHide={addModalClose}
                     />
 
 
-                </ButtonToolbar>
-                {this.state.Events.map(Event =>
-
+                </ButtonToolbar> 
+              {this.state.Events.map(Event =>
                     <Row className="row">
-
                         <Col calssName="col" sm={2}>
                             <img
                                 width={170}
@@ -90,28 +85,23 @@ import { AddEventForm } from '../../components/AddEventForm';
                                 <div className="lid" />
                                 <div className="lidcap" />
                                 <div className="bin" />
-
                             </div>
-                            <svg onClick={this.del = async () => {
-                                window.confirm('Are you sure you wish to delete this item?')
-                                window.location.reload();
-                                const responsep = await fetch(`http://localhost:8080/Events/delete/${Event.ID}`);
-                                const resultp = await responsep.json();
-                                console.log(resultp);
-
-
-                            }} className="icon-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 40" width={40} height={40}>
-                                <path className="trash-lid" fillRule="evenodd" d="M6 15l4 0 0-3 8 0 0 3 4 0 0 2 -16 0zM12 14l4 0 0 1 -4 0z" />
-                                <path className="trash-can" d="M8 17h2v9h8v-9h2v9a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z" />
-                            </svg>
+                          <span class="icon-trash" onClick={this.del = async () => {
+                              window.confirm('Are you sure you wish to delete this item?')
+                              window.location.reload();
+                              const responsep = await fetch(`http://localhost:8080/Events/delete/${Event.ID}`);
+                              const resultp = await responsep.json();
+                              console.log(resultp);
+                          }}  >
+                            </span>
                         </Col>
 
                     </Row>
 
-                )}
+                )}  
 
-
-            </>
+             </>
         );
-    }
-}
+    
+            }
+        }
