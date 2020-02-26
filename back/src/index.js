@@ -7,11 +7,11 @@ import getProductImageDatabase from './ProductImage_db'
 import OrdersDatabase from './Orders_db'
 import CatIDProData from './CatIDPro'
 const multer = require('multer');
-const fs = require('fs');
+const path = require('path');
 const app = express();
-const upload = multer({ dest: './Image' })
+app.use(express.static(path.join(__dirname, './public'))); // <-- location of public dir
 app.listen(8080, () => { console.log("Listening on port 8080") });
- 
+
 //Products  
 const startProduct = async () => {
 
@@ -319,10 +319,29 @@ startCatIDPro()
 // Event Image for multer
 
 
- 
-
-app.post("/testfile", upload.single('image'), async (req, res, next) => {
-  console.log(req.file)
-  console.log(req.body)
-  res.json({ message: 'ok' })
+const multerStorage = multer.diskStorage({
+  destination: path.join(__dirname, './public/images'),
+  filename: (req, file, cb) => {
+    const { fieldname, originalname } = file
+    const date = Date.now()
+    const filename = `${fieldname}-${date}-${originalname}`
+    cb(null, filename)
+  }
 })
+
+const upload = multer({ storage: multerStorage })
+const startForm = async () => {
+  const controller = await Eventsdatabase();
+app.post("/formEvents", upload.single('image'), async (req, res) => {
+  const { description, location, date } = req.body;
+  const eventImg = req.file.filename
+  try {
+    const result = await controller.createEvents({ description, location, date, eventImg });
+    res.json({ success: true, result });
+  } catch (err) {
+    console.log(err.message)
+    console.log("jsjj")
+  }
+}); 
+}
+startForm()

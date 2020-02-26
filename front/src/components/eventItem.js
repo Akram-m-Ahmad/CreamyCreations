@@ -9,7 +9,7 @@ function EventItem(props) {
         <Container>
         <div className="content">
             <div className="cardd">
-                <div className="firstinfo"><img className="imgev" src={`/Image/${props.value.eventImg}`} />
+                    <div className="firstinfo"><img className="imgev" src={`http://localhost:8080/images/${props.value.eventImg}`} />
                     <div className="profileinfo">
                         
                             <h1><span>Location:</span> {props.value.location}</h1>

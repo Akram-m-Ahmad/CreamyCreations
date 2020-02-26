@@ -11,7 +11,7 @@ export class AddEventForm extends Component {
             description: '',
             location: '',
             date: '',
-            image: ''
+             
 
         };
         this.handleChange = this.handleChange.bind(this);
@@ -29,20 +29,20 @@ export class AddEventForm extends Component {
     async handleSubmit(event) {
         event.preventDefault() 
         //Multer......................................
-         const file = event.target.fileField.files[0];
-        console.log(file);
-        const body = new FormData();
-        body.append('image', file);
-         
-        const response = await fetch("http://localhost:8080/testfile", {
+          const body = new FormData();
+        body.append('image', event.target.file.files[0]);
+        body.append('description', this.state.description);
+        body.append('location', this.state.location);
+        body.append('date', this.state.date);
+        const response = await fetch("http://localhost:8080/formEvents", {
             method: 'POST',
-            body: body
+            
+            body:body
         });
         const result = await response.json();
-        console.log(result)
-//multer............................................
-        const responseO = await fetch(`http://localhost:8080/Events/create/?description=${this.state.description}&location=${this.state.location}&date=${this.state.date}&eventImg=${file.name} `);
-         window.location.reload();
+      
+//multer..........  ..................................
+          window.location.reload();
      }
 
     render() {
@@ -80,7 +80,7 @@ export class AddEventForm extends Component {
                                 <Form.Control name="date" type="date" value={this.state.date} onChange={this.handleChange} />
                             </Form.Group>
                             
-                        <input type='file' name='fileField' />
+                        <input type='file' name='file' />
                  
  
                             <Button variant="danger" size="lg" value='OK' block="block" type="submit">

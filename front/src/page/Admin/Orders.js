@@ -25,14 +25,15 @@ export default class Order extends React.Component {
         const result = await response.json();
         console.log(result);
 
-        const response1 = await fetch('http://localhost:8080/Products/:id');
-        const resultP = await response1.json();
-        console.log(result);
+        // const response1 = await fetch('http://localhost:8080/Products/:id');
+        // const resultP = await response1.json();
+        // console.log(result);
 
 
         this.setState({
-            Orders: result,
-            Products: resultP
+            Orders: result
+            // ,
+            // Products: resultP
 
         })
     }
@@ -42,8 +43,9 @@ export default class Order extends React.Component {
     render() {
 
         return (
+            
             <>
-
+              
 
                 {this.state.Orders.map(Order =>
 

@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddEventForm } from '../../components/AddEventForm';
- 
-export default class Events extends React.Component {
+ export default class Events extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -73,7 +72,7 @@ export default class Events extends React.Component {
                                 height={170}
                                 className="mr-3 img_product"
                                 alt="Generic placeholder"
-                                src={`/Image/${Event.eventImg}`}
+                                src={`http://localhost:8080/images/${Event.eventImg}`}
                             />
 
                         </Col>
