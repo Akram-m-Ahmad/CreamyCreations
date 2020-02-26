@@ -51,16 +51,6 @@ export default class Products extends React.Component {
     return (
       <div className="wrapper">
 
-
-
-
-        <Container>
-
-          <div>
-
-
-
-
             {this.state.Categories.map((cat, index) => (
               <>
                 <h1 className="topicPro">{cat.name}</h1>
@@ -70,11 +60,7 @@ export default class Products extends React.Component {
                     key={index} />
                 </Row>
               </>
-            ))}
-          </div>
-
-
-        </Container>
+            ))} 
         <div />
       </div>)
   }

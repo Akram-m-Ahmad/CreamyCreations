@@ -1,27 +1,26 @@
 .wrapper{
-  width: 1000px;
-  margin: 0 auto;
+   margin: 40px;
 }
 .add2{
-    margin-top:10px;
+ margin-right: 29px;
 }
 
 .roww{
 padding-bottom: 30px;
-  border-bottom: solid 3px rgb(179, 112, 25);
+  border-bottom: solid 3px teal;
 }
 
 .topicPro{
     font-family:  'Allan';
     margin-top: 15px    ;
     margin-bottom: 12px;
-    color: rgb(56, 100, 100);
+    color: teal;
 }
 
 .flip-box {
     border-radius: 3%;
     background-color: transparent;
-    width: 300px;
+    width: 400px;
     height: 305px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
@@ -64,7 +63,7 @@ padding-bottom: 30px;
 
   .ImagePr{
     height: 300px;
-    width:  295px;
+    width:  400px;
     margin: 3px ;
     border-radius: 3%;
     box-shadow:rgb(248, 247, 222) -3px -3px;
@@ -84,7 +83,7 @@ padding-bottom: 30px;
   
   .roww{
    overflow-y: scroll;    
-    width: 100%;
+
     height:350px;
   }
   .flip-box-back span{
