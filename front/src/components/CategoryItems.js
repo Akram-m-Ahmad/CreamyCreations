@@ -27,8 +27,6 @@ export default class CategoryItems extends React.Component {
 
     });
   }
-
-
   async componentDidMount() {
 
     //Products
@@ -113,12 +111,20 @@ export default class CategoryItems extends React.Component {
                     <img className="ImagePr" src={`/Image/${product.proImg}`} alt="Paris" />
                   </div>
                   <div className="flip-box-back">
+                    <h2 className='topicPro'>Akram</h2>
+                    <p><span >Name:</span> {product.name}</p>
+                    <p><span>Description:</span> {product.description}</p>
+                    <p><span>Price:</span> {product.price} $</p>
+                    {/* <p><span>Price:</span> {props.value.Categories_ID} $</p> */}
+                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e)} variant="danger">Add new Order</Button>
+=======
                     <h2 className='topicPro'>Product Details</h2>
                     <p><span>Name:</span> {product.name}</p>
                     <p><span>Description:</span> {product.description}</p>
                     <p><span>Price:</span> {product.price} $</p>
                     {/* <p><span>Price:</span> {props.value.Categories_ID} $</p> */}
                     <Button className='add add2' size="lg" onClick={e => this.modalOpen(e, product.ID)} variant="danger">Add new product</Button>
+>>>>>>> ba543dd2bfe6a5f6911cbabcf4a9c6ebae740e4a
                   </div>
                 </div>
               </div>

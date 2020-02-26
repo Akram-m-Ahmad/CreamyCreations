@@ -1,25 +1,25 @@
-// import React from 'react';
-// import './product.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import './product.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import {Dropdown,MenuItem,Button,ButtonToolbar,DropdownButton,SplitButton ,Container,Row,Col,FormControl,Nav,thumbnail,Table,Image} from 'react-bootstrap';
-
-
+import {Dropdown,MenuItem,Button,ButtonToolbar,DropdownButton,SplitButton ,Container,Row,Col,FormControl,Nav,thumbnail,Table,Image} from 'react-bootstrap';
 
 
-// class AddProducts extends React.Component {
+
+
+class AddProducts extends React.Component {
   
   
 
-//   render() {
+  render() {
     
-//     return (
-//         <>
+    return (
+        <>
 
-//         <div>nsac</div>
-//       </>
-//     );
-//   }
-// }
+        <div></div>
+      </>
+    );
+  }
+}
 
-// export default  AddProducts;
+export default  AddProducts;
