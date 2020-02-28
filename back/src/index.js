@@ -79,9 +79,9 @@ const startNews = async () => {
 
   app.get('/News/create', async (req, res) => {
     console.log("create")
-    const { description, date } = req.query;
-    console.log({ description, date })
-    const result = await controller.createNews({ description, date });
+    const { description, date,newsImg } = req.query;
+    console.log({ description, date, newsImg})
+    const result = await controller.createNews({ description, date, newsImg });
     res.json(result);
   });
 
@@ -345,3 +345,22 @@ app.post("/formEvents", upload.single('image'), async (req, res) => {
 }); 
 }
 startForm()
+
+
+
+
+const startNewsForm = async () => {
+  const controller = await NewsDatabase();
+  app.post("/formNews", upload.single('image'), async (req, res) => {
+    const { description,  date } = req.body;
+    const newsImg  = req.file.filename
+    try {
+      const result = await controller.createNews({ description, date, newsImg });
+      res.json({ success: true, result });
+    } catch (err) {
+      console.log(err.message)
+      console.log("jsjj")
+    }
+  });
+}
+startNewsForm()

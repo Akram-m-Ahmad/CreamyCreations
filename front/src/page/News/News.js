@@ -25,11 +25,7 @@ class News extends Component {
     return (
       <div style={{margin: 0}} className="mainCountainer">
 
-            <Col xs={12} md={12}>
-              <h1 className="h1Newscss" >News</h1>
-            <Image  className="mainImg "  src="/Image/img3.jpg" />
-            </Col>
-       
+             
        {this.state.News.map(nnews => (
           <NewsItem value={nnews}/>
             )

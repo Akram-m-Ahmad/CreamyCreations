@@ -41,8 +41,7 @@ import { AddEventForm } from '../../components/AddEventForm';
 
 
 
-     //src = {`http://localhost:8080/images/${Event.eventImg}`
- 
+  
     render() {
         let addModalClose = () => this.setState({ addModalShow: false });
         return (

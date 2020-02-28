@@ -18,8 +18,7 @@ function EventItem(props) {
                             <p className="bio"><span>Description:</span> {props.value.description}</p>
                     </div>
                 </div>
-{/*                 <div className="badgescard"> <span className="devicons devicons-django" /><span className="devicons devicons-python"> </span><span className="devicons devicons-codepen" /><span className="devicons devicons-javascript_badge" /><span className="devicons devicons-gulp" /><span className="devicons devicons-angular" /><span className="devicons devicons-sass"> </span></div>
- */}            </div></div>
+            </div></div>
 
         </Container>
     );
