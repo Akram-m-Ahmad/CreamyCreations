@@ -27,13 +27,6 @@ const startProduct = async () => {
   });
 
 
-  app.get('/Products/create', async (req, res) => {
-    const { name, description, price, Categories_ID } = req.query;
-    console.log({ name, description, price, Categories_ID })
-    const result = await controller.createProducts({ name, description, price, Categories_ID });
-    res.json(result);
-  });
-
   app.get('/Products/delete/:id', async (req, res) => {
 
     const { id } = req.params;
@@ -79,8 +72,8 @@ const startNews = async () => {
 
   app.get('/News/create', async (req, res) => {
     console.log("create")
-    const { description, date,newsImg } = req.query;
-    console.log({ description, date, newsImg})
+    const { description, date, newsImg } = req.query;
+    console.log({ description, date, newsImg })
     const result = await controller.createNews({ description, date, newsImg });
     res.json(result);
   });
@@ -222,20 +215,6 @@ const startProductImages = async () => {
 
   const controller = await getProductImageDatabase();
 
-  app.get('/ProductImages/', async (req, res) => {
-    const result = await controller.getProductImages(req.query);
-    res.send(result);
-  });
-
-
-
-  app.get('/ProductImages/create', async (req, res) => {
-    const { id, path, Products_id } = req.query;
-    console.log({ id, path, price, Products_id })
-    const result = await controller.createProductImages({ id, path, Products_id });
-    res.json(result);
-  });
-
   app.get('/ProductImages/delete/:id', async (req, res) => {
 
     const { id } = req.params;
@@ -332,28 +311,41 @@ const multerStorage = multer.diskStorage({
 const upload = multer({ storage: multerStorage })
 const startForm = async () => {
   const controller = await Eventsdatabase();
-app.post("/formEvents", upload.single('image'), async (req, res) => {
-  const { description, location, date } = req.body;
-  const eventImg = req.file.filename
-  try {
-    const result = await controller.createEvents({ description, location, date, eventImg });
-    res.json({ success: true, result });
-  } catch (err) {
-    console.log(err.message)
-    console.log("jsjj")
-  }
-}); 
+  app.post("/formEvents", upload.single('image'), async (req, res) => {
+    const { description, location, date } = req.body;
+    const eventImg = req.file.filename
+    try {
+      const result = await controller.createEvents({ description, location, date, eventImg });
+      res.json({ success: true, result });
+    } catch (err) {
+      console.log(err.message)
+      console.log("jsjj")
+    }
+  });
 }
 startForm()
 
-
-
+const startProductsForm = async () => {
+  const controller = await ProductsDatabase();
+   app.post("/formPro", upload.single('image'), async (req, res) => {
+     const { name, description, price, Categories_ID} = req.body;
+     const proImg = req.file.filename
+    try {
+      const result = await controller.createProducts({ name, description, price, Categories_ID, proImg});
+      res.json({ success: true, result });
+    } catch (err) {
+      console.log(err.message)
+      console.log("jsjj")
+    }
+  });
+}
+startProductsForm()
 
 const startNewsForm = async () => {
   const controller = await NewsDatabase();
   app.post("/formNews", upload.single('image'), async (req, res) => {
-    const { description,  date } = req.body;
-    const newsImg  = req.file.filename
+    const { description, date } = req.body;
+    const newsImg = req.file.filename
     try {
       const result = await controller.createNews({ description, date, newsImg });
       res.json({ success: true, result });
@@ -364,3 +356,16 @@ const startNewsForm = async () => {
   });
 }
 startNewsForm()
+
+//imageById
+
+const startImageId = async () => {
+  const controller = await CategoriesDatabase();
+  app.get('/ImagId/', async (req, res) => {
+    
+    const result = await controller.getImageId( );
+    console.log(result)
+    res.json(result);
+  });
+}
+startImageId()

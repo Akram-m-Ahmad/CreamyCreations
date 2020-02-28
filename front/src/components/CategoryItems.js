@@ -30,15 +30,18 @@ export default class CategoryItems extends React.Component {
   async componentDidMount() {
 
     //Products
-    const response = await fetch(`http://localhost:8080/OrderByCatProducts/${this.state.catID}`);
+    console.log(this.state.catID, this.props.value)
+    const response = await fetch(`http://localhost:8080/OrderByCatProducts/${this.props.value}`);
     const result = await response.json();
+    console.log(result)
 
 
     this.setState({
       products: result, error: "none",
       modal: false,
       name: "",
-      modalInputName: ""
+      modalInputName: "",
+      proId: ''
     })
 
 
@@ -54,9 +57,10 @@ export default class CategoryItems extends React.Component {
 
 
 
-  modalOpen(proID) {
-    this.setState({ modal: true });
-    this.state.ProId = proID;
+  modalOpen(event, proId) {
+    event.preventDefault();
+    this.setState({ modal: true, proId });
+
   }
 
   modalClose() {
@@ -115,10 +119,9 @@ export default class CategoryItems extends React.Component {
                     <p><span >Name:</span> {product.name}</p>
                     <p><span>Description:</span> {product.description}</p>
                     <p><span>Price:</span> {product.price} $</p>
-                    {/* <p><span>Price:</span> {props.value.Categories_ID} $</p> */}
-                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e)} variant="danger">Add new Order</Button>
- 
- 
+                    <Button className='add add2' size="lg" onClick={e => this.modalOpen(e, product.ID)} variant="danger">Add new Order</Button>
+
+
                   </div>
                 </div>
               </div>

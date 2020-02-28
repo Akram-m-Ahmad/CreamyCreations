@@ -86,12 +86,12 @@ import { AddEventForm } from '../../components/AddEventForm';
                                 <div className="bin" />
                             </div>
                           <span class="icon-trash" onClick={this.del = async () => {
-                              window.confirm('Are you sure you wish to delete this item?')
+                              if(window.confirm('Are you sure you wish to delete this item?')){
                               window.location.reload();
                               const responsep = await fetch(`http://localhost:8080/Events/delete/${Event.ID}`);
                               const resultp = await responsep.json();
                               console.log(resultp);
-                          }}  >
+                          }}  }>
                             </span>
                         </Col>
 

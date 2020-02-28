@@ -7,7 +7,7 @@ const OrdersDatabase = async () => {
 
   //To give me the Orders table
   const getOrders = async () => {
-    let statment = "select * from Orders";
+    let statment = "select Orders.*, Products.proImg from Orders join Products where Orders.Products_ID = Products.ID";
 
     try {
       const rows = await db.all(statment);

@@ -38,11 +38,12 @@ margin-bottom: 10px;
   /* Presentational Styles */
   
   .col{
-      border-left: 3px solid grey;
+      border-left: 3px solid white;
   }
+#wrapper {
+  margin: 0 auto;
+  width: 1000px;
+}
   /* .row{
     border-bottom: 3px solid grey;
   } */
-  .operation {
-    float: right;
-}

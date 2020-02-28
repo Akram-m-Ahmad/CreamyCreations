@@ -81,8 +81,24 @@ const CategoriesDatabase = async () => {
       throw new Error(`Could not update Categories with id ${id}` + err);
     }
   };
+ 
+   
+  const getImageId = async orderBy => {
+    let stmt = "select Orders.*, Products.proImg from Orders join Products where Orders.Products_ID = Products.ID";
+
+    try {
+      const rows = await db.all(stmt);
+      if (rows.length == 0) {
+        throw new Error("Categories are empty!");
+      }
+      return rows;
+    } catch (err) {
+      throw new Error("Could not retrieve list of Categories ");
+    }
+  };
 
   const controller = {
+    getImageId,
     getCategories,
     getgetCategoriesByID,
     createCategories,

@@ -54,7 +54,7 @@ const initializeDatabase = async () => {
     }
     try {
       const result = await db.run(
-        `Insert into Products (name,description,price,Categories_ID ) values ('${name}', '${description}',${price},${Categories_ID})`
+        `Insert into Products (name,description,price,Categories_ID,proImg ) values ('${name}', '${description}',${price},${Categories_ID},'${proImg}')`
       );
       return result.stmt.lastID;
     } catch (err) {
